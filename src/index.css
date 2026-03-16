@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 13% 5%;
+    --foreground: 213 18% 85%;
+    --card: 220 16% 11%;
+    --card-foreground: 213 18% 85%;
+    --popover: 220 16% 11%;
+    --popover-foreground: 213 18% 85%;
+    --primary: 43 96% 56%;
+    --primary-foreground: 220 13% 5%;
+    --secondary: 220 14% 13%;
+    --secondary-foreground: 213 18% 85%;
+    --muted: 220 14% 13%;
+    --muted-foreground: 215 9% 47%;
+    --accent: 220 14% 13%;
+    --accent-foreground: 213 18% 85%;
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 213 18% 85%;
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 43 96% 56%;
+    --radius: 0.375rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#0d1117] text-[#c9d1d9] antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Custom Scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #30363d transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #30363d;
+    border-radius: 2px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: #484f58;
+  }
+
+  /* Line clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: rgba(251, 191, 36, 0.3);
+    color: white;
+  }
+}
+
+/* Dialog overlay styling */
+[data-state="open"] > [data-radix-dialog-overlay] {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+/* Select dropdown styling */
+[role="listbox"] {
+  background-color: #161b22;
+  border-color: #30363d;
+}
+
+/* Focus ring styling */
+*:focus-visible {
+  outline: none;
+  ring: 1px solid #58a6ff;
+  ring-offset: 1px;
+  ring-offset-color: #0d1117;
+}
+
+/* Button hover states */
+button {
+  transition: colors 150ms;
+}
+
+/* Input styling */
+input::placeholder {
+  color: #6e7681;
+}
+
+/* Prevent text selection on interactive elements */
+button, [role="button"] {
+  user-select: none;
+}
